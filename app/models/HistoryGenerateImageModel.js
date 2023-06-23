@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 // Create a new schema
-const generateImageSchema = new Schema(
+const historyGenerateImageSchema = new Schema(
 	{
 		prompt: {
 			type: String,
@@ -20,7 +20,10 @@ const generateImageSchema = new Schema(
 );
 
 // Create a model based on the schema
-const GenerateImage = mongoose.model("GenerateImage", generateImageSchema);
+const HistoryGenerateImage = mongoose.model(
+	"HistoryGenerateImage",
+	historyGenerateImageSchema
+);
 
 // Export the model
-module.exports = GenerateImage;
+module.exports = HistoryGenerateImage;

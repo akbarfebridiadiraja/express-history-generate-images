@@ -16,11 +16,11 @@ app.get("/", (req, res) => {
 
 const AuthRoute = require("./app/routes/AuthRoute");
 const UserRoute = require("./app/routes/UserRoute");
-const GenerateImageRoute = require("./app/routes/GenerateImageRoute");
+const HistoryGenerateImageRoute = require("./app/routes/HistoryGenerateImageRoute");
 
 app.use("/api", AuthRoute);
 app.use("/api/user", UserRoute);
-app.use("/api/generate-image", GenerateImageRoute);
+app.use("/api/history-generate-image", HistoryGenerateImageRoute);
 
 /** End Import Router */
 

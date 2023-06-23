@@ -1,13 +1,13 @@
 const config = require("../config");
-const GenerateImage = require("../models/GenerateImageModel");
+const HistoryGenerateImage = require("../models/HistoryGenerateImageModel");
 
 fetchAll = (req, res) => {
-	GenerateImage.find()
-		.then((generateImages) => {
+	HistoryGenerateImage.find()
+		.then((data) => {
 			res.status(200).send({
 				code: 200,
 				message: "Success",
-				generateImages: generateImages,
+				historyGenerateImage: data,
 			});
 		})
 		.catch((err) => {
@@ -21,21 +21,21 @@ fetchAll = (req, res) => {
 };
 
 store = (req, res) => {
-	// Create a GenerateImage
-	const generateImage = new GenerateImage({
+	// Create a HistoryGenerateImage
+	const historyGenerateImage = new HistoryGenerateImage({
 		prompt: req.body.prompt,
 		imageUrl: req.body?.imageUrl,
 		userId: req.body?.userId,
 	});
 
 	// Save GenerateImage in the database
-	generateImage
+	historyGenerateImage
 		.save()
 		.then((data) => {
 			res.status(201).send({
 				code: 201,
 				message: "Success",
-				generateImage: data,
+				historyGenerateImage: data,
 			});
 		})
 		.catch((err) => {
@@ -49,7 +49,7 @@ store = (req, res) => {
 };
 
 clearAll = (req, res) => {
-	GenerateImage.deleteMany({ userId: req.params.userId })
+	HistoryGenerateImage.deleteMany({ userId: req.params.userId })
 		.then((data) => {
 			res.status(200).send({
 				code: 200,
