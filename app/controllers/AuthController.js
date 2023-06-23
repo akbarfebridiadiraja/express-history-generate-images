@@ -13,6 +13,7 @@ register = (req, res) => {
 		}
 
 		const user = new User({
+			name: req.body.name,
 			phone: req.body.phone,
 			password: bcrypt.hashSync(req.body.password, 10),
 		});
