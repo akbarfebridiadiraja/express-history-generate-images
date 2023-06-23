@@ -1,0 +1,28 @@
+{
+	"name": "express-history-generate-images",
+	"version": "1.0.0",
+	"description": "Express JS",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "akbarfebridiadiraja"
+	},
+	"keywords": [
+		"expressjs",
+		"mongodb"
+	],
+	"author": "Akbar Febri",
+	"license": "ISC",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.20.2",
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2",
+		"mongoose": "^7.3.1",
+		"nodemon": "^2.0.22"
+	}
+}
