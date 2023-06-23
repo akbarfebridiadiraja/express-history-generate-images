@@ -7,7 +7,7 @@ fetchAll = (req, res) => {
 			res.status(200).send({
 				code: 200,
 				message: "Success",
-				historyGenerateImage: data,
+				historyGenerateImages: data,
 			});
 		})
 		.catch((err) => {

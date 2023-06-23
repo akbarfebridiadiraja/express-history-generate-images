@@ -94,7 +94,7 @@ deleteUser = (req, res) => {
 			if (!user) {
 				return res.status(404).send({
 					code: 404,
-					message: "User not found with id " + req.params.userId,
+					message: "User not found with id " + req.params.id,
 				});
 			}
 
@@ -104,18 +104,18 @@ deleteUser = (req, res) => {
 			if (err.kind === "ObjectId" || err.name === "NotFound") {
 				return res.status(404).send({
 					code: 404,
-					message: "User not found with id " + req.params.userId,
+					message: "User not found with id " + req.params.id,
 				});
 			}
 			return res.status(500).send({
 				code: 500,
-				message: "Could not delete User with id " + req.params.userId,
+				message: "Could not delete User with id " + req.params.id,
 			});
 		});
 };
 
 deleteHistoryGenerateImage = (req, res) => {
-	GenerateImage.findByIdAndRemove({ userId: req.body.userId })
+	GenerateImage.findByIdAndRemove({ userId: req.params.id })
 
 		.then((generateImage) => {
 			if (!generateImage) {
