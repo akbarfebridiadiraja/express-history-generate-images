@@ -14,7 +14,11 @@ getUser = (req, res) => {
 			res.status(200).send({
 				code: 200,
 				message: "Success",
-				user: user,
+				user: {
+					id: user._id,
+					name: user.name,
+					phone: user.phone,
+				},
 			});
 		})
 		.catch((err) => {
