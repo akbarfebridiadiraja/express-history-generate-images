@@ -2,7 +2,8 @@ const config = require("../config");
 const HistoryGenerateImage = require("../models/HistoryGenerateImageModel");
 
 fetchAll = (req, res) => {
-	HistoryGenerateImage.find()
+	const { userId } = req.query;
+	HistoryGenerateImage.find({ userId: userId })
 		.then((data) => {
 			res.status(200).send({
 				code: 200,
@@ -49,7 +50,8 @@ store = (req, res) => {
 };
 
 clearAll = (req, res) => {
-	HistoryGenerateImage.deleteMany({ userId: req.params.userId })
+	const { userId } = req.query;
+	HistoryGenerateImage.deleteMany({ userId: userId })
 		.then((data) => {
 			res.status(200).send({
 				code: 200,
