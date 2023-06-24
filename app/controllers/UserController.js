@@ -3,12 +3,12 @@ const User = require("../models/UserModel");
 const bcrypt = require("bcryptjs");
 
 getUser = (req, res) => {
-	User.findById(req.params.userId)
+	User.findById(req.params.id)
 		.then((user) => {
 			if (!user) {
 				return res.status(404).send({
 					code: 404,
-					message: "User not found with id " + req.params.userId,
+					message: "User not found with id " + req.params.id,
 				});
 			}
 			res.status(200).send({
@@ -21,12 +21,12 @@ getUser = (req, res) => {
 			if (err.kind === "ObjectId") {
 				return res.status(404).send({
 					code: 404,
-					message: "User not found with id " + req.params.userId,
+					message: "User not found with id " + req.params.id,
 				});
 			}
 			return res.status(500).send({
 				code: 500,
-				message: "Error retrieving User with id " + req.params.userId,
+				message: "Error retrieving User with id " + req.params.id,
 			});
 		});
 };
